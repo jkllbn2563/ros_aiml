@@ -11,7 +11,7 @@ pub=rospy.Publisher('/Intent',String,queue_size=10)
 rate=rospy.Rate(1)
 
 def trigger_response(data):
-	
+
 	response = data.data
 	rospy.loginfo("Start to process ::%s",response)
 	result=re.search(r"the current state is (?P<state>.+)",response)
@@ -19,9 +19,6 @@ def trigger_response(data):
 		state=result.group('state')
 		pub.publish(state)
 		rate.sleep()
-
-
-
 
 def listener():
 

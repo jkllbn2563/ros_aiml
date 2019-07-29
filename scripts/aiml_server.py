@@ -26,8 +26,8 @@ def is_chinese(uchar):
 
 def load_aiml(xml_file):
 
-	#data_path = rospy.get_param("aiml_path")
-	data_path="/home/jkllbn2563/catkin_ws/src/ros_aiml/data"
+	data_path = rospy.get_param("aiml_path")
+	#data_path="/home/shannon/Documents/ros-kinetic/src/ros_aiml/data"
 	print data_path
 	os.chdir(data_path)
 
@@ -46,7 +46,7 @@ def speak(sentence):
 		mixer.init()
 		mixer.music.load('{}.mp3'.format(fp.name))
 		mixer.music.play(1)
-        
+
 
 def callback(data):
 
@@ -61,20 +61,18 @@ def callback(data):
 		print("chinese")
 		speak(response.decode('utf-8'))
 
-  
+
 
 
 def listener():
 
 	rospy.loginfo("Starting ROS AIML Server")
 	rospy.Subscriber("chatter", String, callback)
-    
+
 	# spin() simply keeps python from exiting until this node is stopped
 	rospy.spin()
 
 if __name__ == '__main__':
 
-
-  
 	load_aiml('startup.xml')
 	listener()

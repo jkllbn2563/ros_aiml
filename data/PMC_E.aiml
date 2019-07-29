@@ -21,41 +21,41 @@
       <template>
       	<think><set name = "item">BOX</set></think>
       	<think><set name = "state">IntentFind</set></think>
-      
+
         <condition name = "state" value = "IntentFind">
-            
+
             <random>
-            <li> BOX is consist of the A,B and C,and the current state is IntentFind. </li>
+            <li> BOX is consist of the A,B and C,and the current state is IntentFind </li>
             <li> I got it! ready to pick the BOX,and the current state is IntentFind </li>
             </random>
         </condition>
 
-         
-      	
+
+
       </template>
-   </category>  
-   
+   </category>
+
    <category>
       <pattern>_ BOX</pattern>
       <template>
          <srai>BOX</srai>
       </template>
    </category>
-   
+
    <category>
       <pattern>_ BOX</pattern>
       <template>
          <srai>BOX</srai>
       </template>
    </category>
-   
+
    <category>
       <pattern>BOX *</pattern>
       <template>
          <srai>BOX</srai>
       </template>
    </category>
-   
+
    <category>
       <pattern>_ BOX *</pattern>
       <template>
@@ -86,29 +86,29 @@
 
 
       </template>
-   </category>  
-   
+   </category>
+
    <category>
       <pattern>_ ITEM</pattern>
       <template>
          <srai>ITEM</srai>
       </template>
    </category>
-   
+
    <category>
       <pattern>_ ITEM</pattern>
       <template>
          <srai>ITEM</srai>
       </template>
    </category>
-   
+
    <category>
       <pattern>ITEM *</pattern>
       <template>
          <srai>ITEM</srai>
       </template>
    </category>
-   
+
    <category>
       <pattern>_ ITEM *</pattern>
       <template>
@@ -143,34 +143,34 @@
             <li> I got it! ready to send the product,and the current state is IntentDelivery </li>
          </random>
       </condition>
-        
-      	
+
+
 
 
       </template>
-   </category>  
-   
+   </category>
+
    <category>
       <pattern>_ COMPLETE</pattern>
       <template>
          <srai>COMPLETE</srai>
       </template>
    </category>
-   
+
    <category>
       <pattern>_ COMPLETE</pattern>
       <template>
          <srai>COMPLETE</srai>
       </template>
    </category>
-   
+
    <category>
       <pattern>COMPLETE *</pattern>
       <template>
          <srai>COMPLETE</srai>
       </template>
    </category>
-   
+
    <category>
       <pattern>_ COMPLETE *</pattern>
       <template>
@@ -181,13 +181,5 @@
 
 
 
-   
+
 </aiml>
-
-
-
-
-
-
-
-
