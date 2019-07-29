@@ -32,13 +32,8 @@ def listen():
 		if keyboard.is_press('q'):
 			exit(-1)
 
-
-
-		
-
-
 while True:
-	
+
 	print("press enter to start")
 	#keyboard.wait('enter')
 	raw_input()
@@ -46,26 +41,18 @@ while True:
 		while not rospy.is_shutdown():
 
 			listen()
-			
+
 			if keyboard.is_press('s'):
 				print("start to analyze...")
 				break
 			else:
 				pass
 
-
-
-
-		
 		#print("You said " + r.recognize_google(audio,language='zh-TW'))
 			#print( r.recognize_google(audio,language='en-US'))
 
-		
+
 		   	#pub.publish(r.recognize_google(audio,language='zh-TW').decode('unicode-escape'))
-		   	
 
-
-	except:                            
+	except:
 		  print("Could not understand audio")
-
-
