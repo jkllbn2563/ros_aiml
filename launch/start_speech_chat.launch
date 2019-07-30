@@ -6,8 +6,10 @@
 	<!--vocal input related-->
 	<node name="aiml_speech_recog" pkg="ros_aiml" type="robot.py" output="screen"/>
 
-	<!--vocal output related-->
-	<include file="$(find sound_play)/soundplay_node.launch"/>
-	<node name="aiml_tts" pkg="ros_aiml" type="aiml_tts_client.py" output="screen"/>
+	<!--vocal output related, offline-->
+	<!--include file="$(find sound_play)/soundplay_node.launch"/>
+	<node name="aiml_tts" pkg="ros_aiml" type="aiml_tts_client_soundplay.py" output="screen"/-->
 
+	<!--vocal output related, online-->
+	<node name="aiml_tts" pkg="ros_aiml" type="aiml_tts_client_google.py" output="screen"/>
 </launch>
