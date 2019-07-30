@@ -40,27 +40,13 @@ def load_aiml(xml_file):
 		mybot.bootstrap(learnFiles = xml_file, commands = "load aiml b")
 		mybot.saveBrain("standard.brn")
 
-def speak(sentence):
-	with tempfile.NamedTemporaryFile(delete=True) as fp:
-		tts=gTTS(text=sentence,lang='zh-tw')
-		tts.save("{}.mp3".format(fp.name))
-		mixer.init()
-		mixer.music.load('{}.mp3'.format(fp.name))
-		mixer.music.play(1)
-def speak_english(sentence):
-	with tempfile.NamedTemporaryFile(delete=True) as fp:
-		tts=gTTS(text=sentence,lang='en-us')
-		tts.save("{}.mp3".format(fp.name))
-		mixer.init()
-		mixer.music.load('{}.mp3'.format(fp.name))
-		mixer.music.play(1)
 
 def callback(data):
 
 	input = data.data
 	response = mybot.respond(input)
-	rospy.loginfo("I heard:: %s",data.data)
-	rospy.loginfo("I spoke:: %s",response)
+	#rospy.loginfo("I heard:: %s",data.data)
+	#rospy.loginfo("I spoke:: %s",response)
 	#rospy.loginfo("I spoke:: %s",response.decode('utf-8'))
 	#print("hahaha",response.decode('utf-8'))
 	rospy.loginfo("Start to process ::%s",response)
@@ -71,17 +57,12 @@ def callback(data):
 		rate.sleep()
 
 	response=re.sub(r",and the current state is (?P<state>.+)","",response)
+	rospy.loginfo("I heard:: %s",data.data)
+
 	rospy.loginfo("I spoke process:: %s",response)
 
 	response_publisher.publish(response)
-	if is_chinese(response.decode('utf-8'))==True:
-		print("Now the language is chinese")
-		speak(response.decode('utf-8'))
-
-	else :
-		print("Now the language is english")
-		speak_english(response)
-
+	
 
 
 
