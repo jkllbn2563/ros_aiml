@@ -10,133 +10,217 @@
 <!-- Last modified 11/23/2011 -->
 <!-- -->
 
-<category>
-      <pattern>HOW CAN I TEST *</pattern>
-      <template>OK! just for test.</template>
+<category><pattern>_ APPLE TEST</pattern>
+<template>OK! just for test.</template>
 </category>
 
 
-<category>
+
+ <category>
       <pattern>CAMERA</pattern>
       <template>
-      	<think><set name = "item">CAMERA</set></think>
+      	<think><set name = "item">camera</set></think>
       	<think><set name = "state">IntentFind</set></think>
+      
         <condition name = "state" value = "IntentFind">
+            
             <random>
-            <li> BOX is consist of the A,B and C,and the current state is IntentFind </li>
-            <li> I got it! ready to pick the BOX,and the current state is IntentFind </li>
+            <li> OK, I will pick the material of <get name = "item"/> for you,and the current state is IntentFind </li>
+            <li> I will collect the parts of camera,and the current state is IntentFind </li>
+            <li> Sure, I can do it,and the current state is IntentFind </li>
             </random>
         </condition>
+
+         
+      	
       </template>
+   </category>  
+   
+   <category>
+      <pattern>_ DO * CAMERA *</pattern>
+      <template>
+         <srai>CAMERA</srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern>_ PACKAGE * CAMERA</pattern>
+      <template>
+         <srai>CAMERA</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_ GIVE * CAMERA</pattern>
+      <template>
+         <srai>CAMERA</srai>
+      </template>
+   </category>
+   
+   
+
+
+<category><pattern>_ ARE YOU DOING</pattern>
+<template>I am delivering the item.</template>
+</category>
+
+<category><pattern>_ TASK ARE YOU *</pattern>
+<template>I am delivering the material of <get name = "item"/>.</template>
+</category>
+
+<category><pattern>_ MANY CAMERA *</pattern>
+<template>There are two at the shipping area.</template>
 </category>
 
 <category>
-  <pattern>_ BOX</pattern>
-  <template>
-     <srai>BOX</srai>
-  </template>
+      <pattern>_ HAVE BEEN FINISHED</pattern>
+      <template>
+      <think><set name = "state">IntentDelivery</set> </think>
+      <condition name = "state" value = "IntentDelivery">
+         <random>
+            <li> OK, I will deliver it to the shipping area,and the current state is IntentDelivery </li>
+            <li> OK, I will take it,and the current state is IntentDelivery </li>
+            <li> No preblem, I will do it,and the current state is IntentDelivery </li>
+         </random>
+      </condition>
+      </template>
+
 </category>
 
-<category>
-  <pattern>_ BOX</pattern>
-  <template>
-     <srai>BOX</srai>
-  </template>
-</category>
 
-<category>
-  <pattern>BOX *</pattern>
-  <template>
-     <srai>BOX</srai>
-  </template>
-</category>
 
-<category>
-  <pattern>_ BOX *</pattern>
-  <template>
-     <srai>BOX</srai>
-  </template>
-</category>
 
 <category>
       <pattern>ITEM</pattern>
       <template>
+
       <random>
             <li> I am delivering the <get name = "item"/> . </li>
             <li> The <get name = "item"/> </li>
       </random>
+
+
       </template>
-</category>
+   </category>  
+   
+   <category>
+      <pattern>_ ITEM</pattern>
+      <template>
+         <srai>ITEM</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_ ITEM</pattern>
+      <template>
+         <srai>ITEM</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>ITEM *</pattern>
+      <template>
+         <srai>ITEM</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_ ITEM *</pattern>
+      <template>
+         <srai>ITEM</srai>
+      </template>
+   </category>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <category>
-  <pattern>_ ITEM</pattern>
-  <template>
-     <srai>ITEM</srai>
-  </template>
-</category>
-
-<category>
-  <pattern>_ ITEM</pattern>
-  <template>
-     <srai>ITEM</srai>
-  </template>
-</category>
-
-<category>
-  <pattern>ITEM *</pattern>
-  <template>
-     <srai>ITEM</srai>
-  </template>
-</category>
-
-<category>
-  <pattern>_ ITEM *</pattern>
-  <template>
-     <srai>ITEM</srai>
-  </template>
-</category>
-
-
-<category>
-      <pattern>COMPLETE</pattern>
+      <pattern>DELIVER</pattern>
       <template>
       	<think><set name = "state">IntentDelivery</set> </think>
       <condition name = "state" value = "IntentDelivery">
          <random>
-            <li> Cellphone is complete, and I will stack it,and the current state is IntentDelivery </li>
-            <li> I got it! ready to send the product,and the current state is IntentDelivery </li>
+            <li> OK, I will deliver it to the shipping area,and the current state is IntentDelivery </li>
+            <li> OK, I will take it,and the current state is IntentDelivery </li>
+            <li> No preblem, I will do it,and the current state is IntentDelivery </li>
          </random>
       </condition>
+        
+
+
+      </template>
+   </category>  
+   
+   <category>
+      <pattern>_ DELIVER</pattern>
+      <template>
+         <srai>DELIVER</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_ DELIVER</pattern>
+      <template>
+         <srai>DELIVER</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>DELIVER *</pattern>
+      <template>
+         <srai>DELIVER</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_ DELIVER *</pattern>
+      <template>
+         <srai>DELIVER</srai>
+      </template>
+   </category>
+
+
+
+<category>
+      <pattern>WHAT * STATUS *</pattern>
+      <template>
+         
+      <condition name = "state" value = "IntentDelivery">
+         <random>
+            <li> The camera is completed, and I will send to the shipping area </li>
+            <li> The state is delivering,I am going to send the package to the shipping area </li>
+         </random>
+      </condition>
+      
+
+
       </template>
 </category>
 
-<category>
-  <pattern>_ COMPLETE</pattern>
-  <template>
-     <srai>COMPLETE</srai>
-  </template>
-</category>
-
-<category>
-  <pattern>_ COMPLETE</pattern>
-  <template>
-     <srai>COMPLETE</srai>
-  </template>
-</category>
-
-<category>
-  <pattern>COMPLETE *</pattern>
-  <template>
-     <srai>COMPLETE</srai>
-  </template>
-</category>
-
-<category>
-  <pattern>_ COMPLETE *</pattern>
-  <template>
-     <srai>COMPLETE</srai>
-  </template>
-</category>
 
 
+
+
+   
 </aiml>
+
+
+
+
+
+
+
+

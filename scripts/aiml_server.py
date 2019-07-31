@@ -8,6 +8,7 @@ import re
 from gtts import gTTS
 from pygame import mixer
 import tempfile
+
 from std_msgs.msg import String
 
 rospy.init_node('aiml_server')
@@ -22,10 +23,15 @@ def is_chinese(uchar):
 	else:
 		return False
 
+
+
 def load_aiml(xml_file):
-	data_path = rospy.get_param("aiml_path")
+
+	#data_path = rospy.get_param("aiml_path")
+	data_path="/home/jkllbn2563/catkin_ws/src/ros_aiml/data"
 	print data_path
 	os.chdir(data_path)
+
 
 	if os.path.isfile("standard.brn"):
 		mybot.bootstrap(brainFile = "standard.brn")
@@ -34,25 +40,9 @@ def load_aiml(xml_file):
 		mybot.bootstrap(learnFiles = xml_file, commands = "load aiml b")
 		mybot.saveBrain("standard.brn")
 
-<<<<<<< HEAD
-def speak(sentence):
-	with tempfile.NamedTemporaryFile(delete=True) as fp:
-		tts=gTTS(text=sentence,lang='zh-tw')
-		tts.save("{}.mp3".format(fp.name))
-		mixer.init()
-		mixer.music.load('{}.mp3'.format(fp.name))
-		mixer.music.play(1)
-def speak_english(sentence):
-	with tempfile.NamedTemporaryFile(delete=True) as fp:
-		tts=gTTS(text=sentence,lang='en-us')
-		tts.save("{}.mp3".format(fp.name))
-		mixer.init()
-		mixer.music.load('{}.mp3'.format(fp.name))
-		mixer.music.play(1)
 
-=======
->>>>>>> 0cb6582095dba6e48294366c6d7f6a88a6640d6f
 def callback(data):
+
 	input = data.data
 	response = mybot.respond(input)
 	#rospy.loginfo("I heard:: %s",data.data)
@@ -67,33 +57,27 @@ def callback(data):
 		rate.sleep()
 
 	response=re.sub(r",and the current state is (?P<state>.+)","",response)
-<<<<<<< HEAD
-	rospy.loginfo("I spoke process:: %s",response)
-
-	response_publisher.publish(response)
-	if is_chinese(response.decode('utf-8'))==True:
-		print("Now the language is chinese")
-		speak(response.decode('utf-8'))
-
-	else :
-		print("Now the language is english")
-		speak_english(response)
-
-
-
-
-=======
 	rospy.loginfo("I heard:: %s",data.data)
+
 	rospy.loginfo("I spoke process:: %s",response)
+
 	response_publisher.publish(response)
->>>>>>> 0cb6582095dba6e48294366c6d7f6a88a6640d6f
+	
+
+
+
 
 def listener():
+
 	rospy.loginfo("Starting ROS AIML Server")
 	rospy.Subscriber("chatter", String, callback)
+    
 	# spin() simply keeps python from exiting until this node is stopped
 	rospy.spin()
 
 if __name__ == '__main__':
+
+
+  
 	load_aiml('startup.xml')
 	listener()

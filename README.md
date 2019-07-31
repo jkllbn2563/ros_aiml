@@ -4,15 +4,14 @@
 ```
 pip install gtts
 pip install aiml
-
-
+pip install PyAudio
 ```
 ### text input
 ```
 python aiml_client.py
 
 ```
-### start the aiml_server
+### start the aiml_server, the google tts,and the text process
 ```
 python aiml_server.py
 
@@ -27,7 +26,7 @@ python aiml_tts_client.py
 ```
 python robot.py
 ```
-### start the text process and will publish the trigger to the topic /Intent
+### start the text process and will publish the trigger to the topic /Intent,and the newest version is merged to the aiml_server.py
 
 ```
 python text_process.py
