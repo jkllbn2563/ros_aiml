@@ -17,16 +17,11 @@
 <think>      <set name="item">BOX</set>     </think>
 
 <template>OK! We will do it and send it to the <get name="item"/>.
-	
-
-
-
 
 </template>
 
 
 </category>
-
 
 
 <category>
@@ -44,7 +39,6 @@
 <template>我唱這麼走心，卻走不進你心裡
 </template>
 </category>
-
 
 
 <category>
