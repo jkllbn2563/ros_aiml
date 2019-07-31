@@ -20,7 +20,8 @@ rate=rospy.Rate(1)
 def listen():
 	with speech_recognition.Microphone() as source:
 		r.adjust_for_ambient_noise(source, duration=0.5)
-		audio=r.listen(source)
+		audio=r.record(source,duration=5)
+		#audio=r.listen(source)
 		#print("You said " + r.recognize_google(audio,language='zh-TW'))
 		print("You said " + r.recognize_google(audio,language='en-US'))
 
