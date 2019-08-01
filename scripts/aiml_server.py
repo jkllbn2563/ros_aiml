@@ -45,8 +45,8 @@ def callback(data):
 		rate.sleep()
 	response=re.sub(r",and the current state is (?P<state>.+)","",response)
 
-	rospy.loginfo("I heard:: %s",data.data)
-	rospy.loginfo("I response:: %s",response)
+	rospy.logwarn("I heard:: %s",data.data)
+	rospy.logwarn("I response:: %s",response)
 	response_publisher.publish(response)
 
 def listener():

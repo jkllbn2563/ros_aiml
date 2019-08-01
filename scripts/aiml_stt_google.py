@@ -32,7 +32,7 @@ def listen():
 			exit(-1)
 
 while not rospy.is_shutdown():
-	rospy.loginfo(">>>>>>>>>> press enter to start <<<<<<<<<<<<")
+	rospy.logwarn(">>>>>>>>>> press enter to start <<<<<<<<<<<<")
 	#keyboard.wait('enter')
 	raw_input()
 	try:
