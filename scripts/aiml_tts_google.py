@@ -5,6 +5,9 @@ from gtts import gTTS
 from pygame import mixer
 from std_msgs.msg import String
 import tempfile
+from sound_play.msg import SoundRequest
+from sound_play.libsoundplay import SoundClient
+
 rospy.init_node('google_tts_bridge', anonymous = False)
 
 soundhandle = SoundClient()
