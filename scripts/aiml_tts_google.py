@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-
-
 import rospy, os, sys
 from sound_play.msg import SoundRequest
 from sound_play.libsoundplay import SoundClient
@@ -9,7 +7,7 @@ from gtts import gTTS
 from pygame import mixer
 from std_msgs.msg import String
 import tempfile
-rospy.init_node('aiml_soundplay_client', anonymous = True)
+rospy.init_node('google_tts_bridge', anonymous = False)
 
 soundhandle = SoundClient()
 rospy.sleep(1)
@@ -40,7 +38,7 @@ def is_chinese(uchar):
 		return False
 
 def get_response(data):
-	
+
 	response = data.data
 	rospy.loginfo("Response ::%s",response)
 	#local tts
@@ -66,4 +64,3 @@ def listener():
 if __name__ == '__main__':
 
 	listener()
-		   

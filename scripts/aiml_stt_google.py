@@ -9,14 +9,12 @@ from std_msgs.msg import String
 #from pynupt.keyboard import Key,controller
 import keyboard
 
-#keyboard.press_and_release('shift+s, space')
 r=speech_recognition.Recognizer()
-#keyboard=Controller()
 
 pub=rospy.Publisher('/chatter',String,queue_size=10)
-rospy.init_node('google_api',anonymous=True)
+rospy.init_node('google_stt_bridge',anonymous=False)
 rate=rospy.Rate(1)
-#device_index=0
+
 def listen():
 	with speech_recognition.Microphone() as source:
 		r.adjust_for_ambient_noise(source, duration=0.5)
@@ -33,13 +31,7 @@ def listen():
 		if keyboard.is_press('q'):
 			exit(-1)
 
-
-
-		
-
-
 while True:
-	
 	print("press enter to start")
 	#keyboard.wait('enter')
 	raw_input()
@@ -47,26 +39,11 @@ while True:
 		while not rospy.is_shutdown():
 
 			listen()
-			
+
 			if keyboard.is_press('s'):
 				print("start to analyze...")
 				break
 			else:
 				pass
-
-
-
-
-		
-		#print("You said " + r.recognize_google(audio,language='zh-TW'))
-			#print( r.recognize_google(audio,language='en-US'))
-
-		
-		   	#pub.publish(r.recognize_google(audio,language='zh-TW').decode('unicode-escape'))
-		   	
-
-
-	except:                            
+	except:
 		  print("Could not understand audio")
-
-

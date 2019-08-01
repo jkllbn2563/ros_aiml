@@ -23,15 +23,10 @@ def is_chinese(uchar):
 	else:
 		return False
 
-
-
 def load_aiml(xml_file):
-
-	#data_path = rospy.get_param("aiml_path")
-	data_path="/home/jkllbn2563/catkin_ws/src/ros_aiml/data"
+	data_path = rospy.get_param("aiml_path")
 	print data_path
 	os.chdir(data_path)
-
 
 	if os.path.isfile("standard.brn"):
 		mybot.bootstrap(brainFile = "standard.brn")
@@ -40,44 +35,27 @@ def load_aiml(xml_file):
 		mybot.bootstrap(learnFiles = xml_file, commands = "load aiml b")
 		mybot.saveBrain("standard.brn")
 
-
 def callback(data):
-
 	input = data.data
 	response = mybot.respond(input)
-	#rospy.loginfo("I heard:: %s",data.data)
-	#rospy.loginfo("I spoke:: %s",response)
-	#rospy.loginfo("I spoke:: %s",response.decode('utf-8'))
-	#print("hahaha",response.decode('utf-8'))
 	rospy.loginfo("Start to process ::%s",response)
 	result=re.search(r"the current state is (?P<state>.+)",response)
 	if result:
 		state=result.group('state')
 		pub.publish(state)
 		rate.sleep()
-
 	response=re.sub(r",and the current state is (?P<state>.+)","",response)
+
 	rospy.loginfo("I heard:: %s",data.data)
-
 	rospy.loginfo("I spoke process:: %s",response)
-
 	response_publisher.publish(response)
-	
-
-
-
 
 def listener():
-
 	rospy.loginfo("Starting ROS AIML Server")
 	rospy.Subscriber("chatter", String, callback)
-    
 	# spin() simply keeps python from exiting until this node is stopped
 	rospy.spin()
 
 if __name__ == '__main__':
-
-
-  
 	load_aiml('startup.xml')
 	listener()
