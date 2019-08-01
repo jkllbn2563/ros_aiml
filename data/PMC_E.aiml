@@ -16,53 +16,64 @@
 
 
 
- <category>
-      <pattern>CAMERA</pattern>
+
+
+   
+   <category>
+      <pattern>_ PACKAGE * CAMERA</pattern>
       <template>
-      	<think><set name = "item">camera</set></think>
-      	<think><set name = "state">IntentFind</set></think>
-      
-        <condition name = "state" value = "IntentFind">
+
+         <think><set name = "item">camera</set></think>
+         <think><set name = "state">IntentFind</set></think>
+      <condition name = "state" value = "IntentFind">
             
             <random>
             <li> OK, I will pick the material of <get name = "item"/> for you,and the current state is IntentFind </li>
             <li> I will collect the parts of camera,and the current state is IntentFind </li>
             <li> Sure, I can do it,and the current state is IntentFind </li>
             </random>
-        </condition>
-
+      </condition>
          
-      	
-      </template>
-   </category>  
-   
-   <category>
-      <pattern>_ DO * CAMERA *</pattern>
-      <template>
-         <srai>CAMERA</srai>
       </template>
    </category>
 
    <category>
-      <pattern>_ PACKAGE * CAMERA</pattern>
+      <pattern>_ MATERIAL * CAMERA</pattern>
       <template>
-         <srai>CAMERA</srai>
+
+         <think><set name = "item">camera</set></think>
+         <think><set name = "state">IntentFind</set></think>
+      <condition name = "state" value = "IntentFind">
+            
+            <random>
+            <li> OK, I will pick the material of <get name = "item"/> for you,and the current state is IntentFind </li>
+            <li> I will collect the parts of camera,and the current state is IntentFind </li>
+            <li> Sure, I can do it,and the current state is IntentFind </li>
+            </random>
+      </condition>
+         
       </template>
    </category>
    
    <category>
-      <pattern>_ GIVE * CAMERA</pattern>
+      <pattern>_ CAMERA PACKAGING</pattern>
       <template>
-         <srai>CAMERA</srai>
+
+         <think><set name = "item">camera</set></think>
+         <think><set name = "state">IntentFind</set></think>
+      <condition name = "state" value = "IntentFind">
+            
+            <random>
+            <li> OK, I will pick the material of <get name = "item"/> for you,and the current state is IntentFind </li>
+            <li> I will collect the parts of camera,and the current state is IntentFind </li>
+            <li> Sure, I can do it,and the current state is IntentFind </li>
+            </random>
+      </condition>
+         
       </template>
    </category>
    
-   
 
-
-<category><pattern>_ ARE YOU DOING</pattern>
-<template>I am delivering the item.</template>
-</category>
 
 <category><pattern>_ TASK ARE YOU *</pattern>
 <template>I am delivering the material of <get name = "item"/>.</template>
@@ -79,8 +90,8 @@
       <condition name = "state" value = "IntentDelivery">
          <random>
             <li> OK, I will deliver it to the shipping area,and the current state is IntentDelivery </li>
-            <li> OK, I will take it,and the current state is IntentDelivery </li>
-            <li> No preblem, I will do it,and the current state is IntentDelivery </li>
+            <li> Sure, I can do it,and the current state is IntentDelivery </li>
+            <li> No preblem, I am doing it now,and the current state is IntentDelivery </li>
          </random>
       </condition>
       </template>
@@ -192,16 +203,25 @@
       </template>
    </category>
 
-
+<category><pattern>_ ARE YOU DOING</pattern>
+<template>I am delivering the item.</template>
+</category>
 
 <category>
-      <pattern>WHAT * STATUS *</pattern>
+      <pattern>_ ARE YOU DOING</pattern>
       <template>
          
       <condition name = "state" value = "IntentDelivery">
          <random>
-            <li> The camera is completed, and I will send to the shipping area </li>
-            <li> The state is delivering,I am going to send the package to the shipping area </li>
+            <li> I am delivering the completed products which are cameras </li>
+            <li> I am delivering the packaged camera products </li>
+         </random>
+      </condition>
+
+      <condition name = "state" value = "IntentFind">
+         <random>
+            <li> I am finding the components of camera </li>
+            <li> I am delivering the material of camera </li>
          </random>
       </condition>
       

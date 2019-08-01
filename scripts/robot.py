@@ -38,13 +38,13 @@ def listen():
 		
 
 
-while True:
+while not rospy.is_shutdown():
 	
 	print("press enter to start")
 	#keyboard.wait('enter')
 	raw_input()
 	try:
-		while not rospy.is_shutdown():
+		
 
 			listen()
 			
