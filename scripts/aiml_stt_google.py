@@ -31,19 +31,17 @@ def listen():
 		if keyboard.is_press('q'):
 			exit(-1)
 
-while True:
+while not rospy.is_shutdown():
 	print("press enter to start")
 	#keyboard.wait('enter')
 	raw_input()
 	try:
-		while not rospy.is_shutdown():
+		listen()
 
-			listen()
-
-			if keyboard.is_press('s'):
-				print("start to analyze...")
-				break
-			else:
-				pass
+		if keyboard.is_press('s'):
+			print("start to analyze...")
+			break
+		else:
+			pass
 	except:
-		  print("Could not understand audio")
+		print("Could not understand audio")
