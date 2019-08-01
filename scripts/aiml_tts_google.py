@@ -12,7 +12,7 @@ rospy.init_node('google_tts_bridge', anonymous = False)
 soundhandle = SoundClient()
 rospy.sleep(1)
 soundhandle.stopAll()
-print 'Starting TTS'
+rospy.loginfo('Starting TTS')
 
 def speak(sentence):
 	with tempfile.NamedTemporaryFile(delete=True) as fp:
@@ -46,11 +46,11 @@ def get_response(data):
 		#soundhandle.say(response)
 
 	if is_chinese(response.decode('utf-8'))==True:
-		print("Now the language is chinese")
+		rospy.loginfo("Now the language is chinese")
 		speak(response.decode('utf-8'))
 
 	else :
-		print("Now the language is english")
+		rospy.loginfo("Now the language is english")
 		speak_english(response)
 
 

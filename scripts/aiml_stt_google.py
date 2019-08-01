@@ -21,7 +21,7 @@ def listen():
 		audio=r.record(source,duration=5)
 		#audio=r.listen(source)
 		#print("You said " + r.recognize_google(audio,language='zh-TW'))
-		print("You said " + r.recognize_google(audio,language='en-US'))
+		#print("You said " + r.recognize_google(audio,language='en-US'))
 
 		#r.recognize_google(audio,language='en-US')
 		#pub.publish(r.recognize_google(audio,language='zh-TW').encode('utf-8'))
@@ -32,16 +32,11 @@ def listen():
 			exit(-1)
 
 while not rospy.is_shutdown():
-	print("press enter to start")
+	rospy.loginfo(">>>>>>>>>> press enter to start <<<<<<<<<<<<")
 	#keyboard.wait('enter')
 	raw_input()
 	try:
 		listen()
-
-		if keyboard.is_press('s'):
-			print("start to analyze...")
-			break
-		else:
-			pass
 	except:
-		print("Could not understand audio")
+		#rospy.loginfo("Could not understand ")
+		pass

@@ -38,7 +38,6 @@ def load_aiml(xml_file):
 def callback(data):
 	input = data.data
 	response = mybot.respond(input)
-	rospy.loginfo("Start to process ::%s",response)
 	result=re.search(r"the current state is (?P<state>.+)",response)
 	if result:
 		state=result.group('state')
@@ -47,7 +46,7 @@ def callback(data):
 	response=re.sub(r",and the current state is (?P<state>.+)","",response)
 
 	rospy.loginfo("I heard:: %s",data.data)
-	rospy.loginfo("I spoke process:: %s",response)
+	rospy.loginfo("I response:: %s",response)
 	response_publisher.publish(response)
 
 def listener():

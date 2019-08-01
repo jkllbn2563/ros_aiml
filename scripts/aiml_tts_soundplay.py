@@ -8,7 +8,7 @@ rospy.init_node('soundplay_tts_bridge', anonymous = True)
 soundhandle = SoundClient()
 rospy.sleep(1)
 soundhandle.stopAll()
-print 'Starting TTS'
+rospy.loginfo('Starting TTS')
 
 def is_chinese(uchar):
 	if uchar >u'\u4e00' and uchar<=u'\u9fa5' :
