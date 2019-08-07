@@ -47,13 +47,17 @@ def get_response(data):
 		#soundhandle.say(response)
 
 	if is_chinese(response.decode('utf-8'))==True:
-		rospy.loginfo("Now the language is chinese")
-		speak(response.decode('utf-8'))
-
+		try:
+			print("Now the language is chinese")
+			speak(response.decode('utf-8'))
+		except:
+			print("changing state")
 	else :
-		rospy.loginfo("Now the language is english")
-		speak_english(response)
-
+		try:
+			print("Now the language is english")
+			speak_english(response)
+		except:
+			print("changing state")
 
 def listener():
 

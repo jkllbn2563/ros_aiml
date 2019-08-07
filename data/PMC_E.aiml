@@ -16,11 +16,9 @@
 
 
 
-
-
    
    <category>
-      <pattern>_ PACKAGE * CAMERA</pattern>
+      <pattern>_ ASSEMBLE * CAMERA *</pattern>
       <template>
 
          <think><set name = "item">camera</set></think>
@@ -28,9 +26,9 @@
       <condition name = "state" value = "IntentFind">
             
             <random>
-            <li> OK, I will pick the material of <get name = "item"/> for you,and the current state is IntentFind </li>
-            <li> I will collect the parts of camera,and the current state is IntentFind </li>
-            <li> Sure, I can do it,and the current state is IntentFind </li>
+            <li> OK, I will deliver them to the shipping area,and the current state is IntentDelivery </li>
+            <li> Sure, let's do this,and the current state is IntentDelivery </li>
+            <li> No preblem, I am going to deliver them,and the current state is IntentDelivery </li>
             </random>
       </condition>
          
@@ -46,9 +44,9 @@
       <condition name = "state" value = "IntentFind">
             
             <random>
-            <li> OK, I will pick the material of <get name = "item"/> for you,and the current state is IntentFind </li>
-            <li> I will collect the parts of camera,and the current state is IntentFind </li>
-            <li> Sure, I can do it,and the current state is IntentFind </li>
+            <li> OK, I will deliver them to the shipping area,and the current state is IntentDelivery </li>
+            <li> Sure, let's do this,and the current state is IntentDelivery </li>
+            <li> No preblem, I am going to deliver them,and the current state is IntentDelivery </li>
             </random>
       </condition>
          
@@ -56,7 +54,7 @@
    </category>
    
    <category>
-      <pattern>_ CAMERA PACKAGING</pattern>
+      <pattern>_ CAMERA PACK</pattern>
       <template>
 
          <think><set name = "item">camera</set></think>
@@ -64,9 +62,9 @@
       <condition name = "state" value = "IntentFind">
             
             <random>
-            <li> OK, I will pick the material of <get name = "item"/> for you,and the current state is IntentFind </li>
-            <li> I will collect the parts of camera,and the current state is IntentFind </li>
-            <li> Sure, I can do it,and the current state is IntentFind </li>
+            <li> OK, I will deliver them to the shipping area,and the current state is IntentDelivery </li>
+            <li> Sure, let's do this,and the current state is IntentDelivery </li>
+            <li> No preblem, I am going to deliver them,and the current state is IntentDelivery </li>
             </random>
       </condition>
          
@@ -89,9 +87,9 @@
       <think><set name = "state">IntentDelivery</set> </think>
       <condition name = "state" value = "IntentDelivery">
          <random>
-            <li> OK, I will deliver it to the shipping area,and the current state is IntentDelivery </li>
-            <li> Sure, I can do it,and the current state is IntentDelivery </li>
-            <li> No preblem, I am doing it now,and the current state is IntentDelivery </li>
+            <li> OK, I will deliver them to the shipping area,and the current state is IntentDelivery </li>
+            <li> Sure, let's do this,and the current state is IntentDelivery </li>
+            <li> No preblem, I am going to deliver them,and the current state is IntentDelivery </li>
          </random>
       </condition>
       </template>
@@ -142,26 +140,27 @@
       </template>
    </category>
 
+<category>
+      <pattern>_ READY TO *</pattern>
+      <template>
+      <think><set name = "state">IntentDelivery</set> </think>
+      <condition name = "state" value = "IntentDelivery">
+         <random>
+            <li> OK, I will deliver them to the shipping area,and the current state is IntentDelivery </li>
+            <li> Sure, let's do this,and the current state is IntentDelivery </li>
+            <li> No preblem, I am going to deliver them,and the current state is IntentDelivery </li>
+         </random>
+      </condition>
+      </template>
 
-
-
-
-
-
-
-
-
-
-
-
-
+</category>
 
 
 
 <category>
       <pattern>DELIVER</pattern>
       <template>
-      	<think><set name = "state">IntentDelivery</set> </think>
+         <think><set name = "state">IntentDelivery</set> </think>
       <condition name = "state" value = "IntentDelivery">
          <random>
             <li> OK, I will deliver it to the shipping area,and the current state is IntentDelivery </li>
@@ -203,9 +202,15 @@
       </template>
    </category>
 
-<category><pattern>_ ARE YOU DOING</pattern>
-<template>I am delivering the item.</template>
+   
+
+<category>
+      <pattern>RESET CURRENT STATE TO BLANK</pattern>
+      <template>
+      <think><set name = "state">Waiting</set> </think>
+      </template>
 </category>
+
 
 <category>
       <pattern>_ ARE YOU DOING</pattern>
@@ -224,6 +229,9 @@
             <li> I am delivering the material of camera </li>
          </random>
       </condition>
+      <condition name = "state" value = "Waiting">
+         I am waiting for your command 
+      </condition>
       
 
 
@@ -232,7 +240,9 @@
 
 
 
-
+<category><pattern>_ WHAT HAPPENED</pattern>
+<template>OK</template>
+</category>
 
    
 </aiml>
