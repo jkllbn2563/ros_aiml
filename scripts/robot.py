@@ -8,6 +8,9 @@ import rospy
 from std_msgs.msg import String
 #from pynupt.keyboard import Key,controller
 import keyboard
+import warnings
+
+warnings.filterwarnings("ignore")
 
 #keyboard.press_and_release('shift+s, space')
 r=speech_recognition.Recognizer()

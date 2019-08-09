@@ -8,8 +8,9 @@ import re
 from gtts import gTTS
 from pygame import mixer
 import tempfile
-
+import warnings
 from std_msgs.msg import String
+warnings.filterwarnings("ignore")
 
 rospy.init_node('aiml_server')
 mybot = aiml.Kernel()
