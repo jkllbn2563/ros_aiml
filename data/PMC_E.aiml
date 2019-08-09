@@ -247,7 +247,13 @@
 
 
 <category><pattern>_ WHAT HAPPENED</pattern>
-<template>OK</template>
+
+<template>
+   <think><set name = "caption">IntentWhat</set> </think>
+      <condition name = "caption" value = "IntentWhat">
+         OK,and the current state is IntentWhat
+      </condition>
+</template>
 </category>
 
    
