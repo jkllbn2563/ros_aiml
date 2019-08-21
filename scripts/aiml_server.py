@@ -10,13 +10,16 @@ from pygame import mixer
 import tempfile
 import warnings
 from std_msgs.msg import String
+import time
 warnings.filterwarnings("ignore")
 
 rospy.init_node('aiml_server')
 mybot = aiml.Kernel()
 response_publisher = rospy.Publisher('response',String,queue_size=10)
 pub=rospy.Publisher('/Intent',String,queue_size=10)
+
 rate=rospy.Rate(1)
+localtime=time.asctime(time.localtime(time.time()))
 
 def is_chinese(uchar):
 	if uchar >u'\u4e00' and uchar<=u'\u9fa5' :
@@ -52,17 +55,34 @@ def callback(data):
 	#print("hahaha",response.decode('utf-8'))
 	rospy.loginfo("Start to process ::%s",response)
 	result=re.search(r"the current state is (?P<state>.+)",response)
+	time_result=re.search(r"now the time is",response)
+
 	if result:
 		state=result.group('state')
 		pub.publish(state)
 		rate.sleep()
 
+	if time_result:
+		state=localtime
+		state=str(state[11:13])+" o'clock and "+str(state[14:16])+" minutes"
+		response=re.sub(r"Friday","",response)
+		response=response+state
+
+
+
 	response=re.sub(r",and the current state is (?P<state>.+)","",response)
+
+	
+
 	rospy.loginfo("I heard:: %s",data.data)
 
 	rospy.loginfo("I spoke process:: %s",response)
 
 	response_publisher.publish(response)
+	#response_publisher.publish(response_time)
+
+	
+
 	
 
 
