@@ -84,11 +84,11 @@
 
 
 <category><pattern>_ ARE YOU FROM</pattern>
-<template>I am from the Graduate institute of eletrical engineer,National Taiwan University,N.T.U.E.E,team six cellabo  .</template>
+<template>I am from the Graduate institute of eletrical engineer,National Taiwan University,N.T.U.E.E,team six. cellabo  .</template>
 </category>
 
 <category><pattern>_ END</pattern>
-<template>Thank you for your attentation,I am team six cellabo  .</template>
+<template>Thank you for your attentation,I am from team six. cellabo  .</template>
 </category>
 
 
