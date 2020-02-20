@@ -198,6 +198,60 @@
       </template>
    </category>
 
+
+<category>
+      <pattern>STATION A</pattern>
+      <template>
+         <think><set name = "state">IntentStationA</set> </think>
+      <condition name = "state" value = "IntentStationA">
+         <random>
+            <li> OK, I will deliver them to the station A,and the current state is IntentStationA </li>
+            <li> OK, Sure, let's do this,and the current state is IntentStationA </li>
+            <li> No preblem, I am going to deliver them,and the current state is IntentStationA </li>
+         </random>
+      </condition>
+        
+
+
+      </template>
+   </category>  
+   
+   <category>
+      <pattern>_ STATION A</pattern>
+      <template>
+         <srai>STATION A</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_ STATION A</pattern>
+      <template>
+         <srai>STATION A</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>STATION A *</pattern>
+      <template>
+         <srai>STATION A</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_ STATION A *</pattern>
+      <template>
+         <srai>STATION A</srai>
+      </template>
+   </category>
+
+
+
+
+
+
+
+
+
 <category>
       <pattern>HOME</pattern>
       <template>

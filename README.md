@@ -80,6 +80,15 @@ roslaunch soundplay_node.launch
 ```
 start the image caption
 ```
+
+```
+### keyword: station A publish:IntentStationA
+
+```
+OK, I will deliver them to the station A
+OK, Sure, let's do this
+No preblem, I am going to deliver them
+```
 ### other
 ```
 What are you doing?
