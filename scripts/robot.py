@@ -23,7 +23,7 @@ rate=rospy.Rate(1)
 def listen():
 	with speech_recognition.Microphone() as source:
 		r.adjust_for_ambient_noise(source, duration=0.5)
-		audio=r.record(source,duration=5)
+		audio=r.record(source,duration=4)
 		#audio=r.listen(source)
 		#print("You said " + r.recognize_google(audio,language='zh-TW'))
 		print("You said " + r.recognize_google(audio,language='en-US'))
@@ -33,8 +33,7 @@ def listen():
 		pub.publish(r.recognize_google(audio,language='en-US'))
 
 		rate.sleep()
-		if keyboard.is_press('q'):
-			exit(-1)
+		
 
 
 
@@ -43,7 +42,7 @@ def listen():
 
 while not rospy.is_shutdown():
 	
-	print("press enter to start")
+	#print("press enter to start")
 	#keyboard.wait('enter')
 	raw_input()
 	try:
@@ -51,11 +50,11 @@ while not rospy.is_shutdown():
 
 			listen()
 			
-			if keyboard.is_press('s'):
-				print("start to analyze...")
-				break
-			else:
-				pass
+			#if keyboard.is_press('s'):
+				#print("start to analyze...")
+				#break
+			#else:
+				#pass
 
 
 

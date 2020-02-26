@@ -19,7 +19,7 @@
 
    
    <category>
-      <pattern>_ STATION B</pattern>
+      <pattern>_ SECOND STATION</pattern>
       <template>
 
          <think><set name = "item">cassette</set></think>
@@ -27,7 +27,7 @@
       <condition name = "state" value = "IntentFind">
             
             <random>
-            <li> Ok, I will send it to the station B,and the current state is IntentFind </li>
+            <li> Ok, I will send it to the second station,and the current state is IntentFind </li>
             <li> Sure, let's do this,and the current state is IntentFind </li>
             <li> No preblem, I am going to do it,and the current state is IntentFind </li>
             </random>
@@ -37,7 +37,7 @@
    </category>
 
    <category>
-      <pattern>STATION B *</pattern>
+      <pattern>SECOND STATION *</pattern>
       <template>
 
          <think><set name = "item">cassette</set></think>
@@ -45,7 +45,7 @@
       <condition name = "state" value = "IntentFind">
             
             <random>
-            <li> Ok, I will send it to the station B,and the current state is IntentFind </li>
+            <li> Ok, I will send it to the second station,and the current state is IntentFind </li>
             <li> Sure, let's do this,and the current state is IntentFind </li>
             <li> No preblem, I am going to do it,and the current state is IntentFind </li>
             </random>
@@ -55,7 +55,7 @@
    </category>
    
    <category>
-      <pattern>_ STATION B *</pattern>
+      <pattern>_ SECOND STATION *</pattern>
       <template>
 
          <think><set name = "item">cassette</set></think>
@@ -63,7 +63,7 @@
       <condition name = "state" value = "IntentFind">
             
             <random>
-            <li> Ok, I will send it to the station B,and the current state is IntentFind </li>
+            <li> Ok, I will send it to the second station ,and the current state is IntentFind </li>
             <li> Sure, let's do this,and the current state is IntentFind </li>
             <li> No preblem, I am going to do it,and the current state is IntentFind </li>
             </random>
@@ -200,12 +200,12 @@
 
 
 <category>
-      <pattern>STATION A</pattern>
+      <pattern>FIRST STATION</pattern>
       <template>
          <think><set name = "state">IntentStationA</set> </think>
       <condition name = "state" value = "IntentStationA">
          <random>
-            <li> OK, I will deliver them to the station A,and the current state is IntentStationA </li>
+            <li> OK, I will deliver them to the first station,and the current state is IntentStationA </li>
             <li> OK, Sure, let's do this,and the current state is IntentStationA </li>
             <li> No preblem, I am going to deliver them,and the current state is IntentStationA </li>
          </random>
@@ -217,30 +217,30 @@
    </category>  
    
    <category>
-      <pattern>_ STATION A</pattern>
+      <pattern>_ FIRST STATION</pattern>
       <template>
-         <srai>STATION A</srai>
+         <srai>FIRST STATION</srai>
       </template>
    </category>
    
    <category>
-      <pattern>_ STATION A</pattern>
+      <pattern>_ FIRST STATION</pattern>
       <template>
-         <srai>STATION A</srai>
+         <srai>FIRST STATION</srai>
       </template>
    </category>
    
    <category>
-      <pattern>STATION A *</pattern>
+      <pattern>FIRST STATION *</pattern>
       <template>
-         <srai>STATION A</srai>
+         <srai>FIRST STATION</srai>
       </template>
    </category>
    
    <category>
-      <pattern>_ STATION A *</pattern>
+      <pattern>_ FIRST STATION *</pattern>
       <template>
-         <srai>STATION A</srai>
+         <srai>FIRST STATION</srai>
       </template>
    </category>
 
@@ -375,10 +375,20 @@
 
       <condition name = "state" value = "IntentFind">
          <random>
-            <li> I am sending cassette to the station B</li>
-            <li> I am delivering the cassette to station B</li>
+            <li> I am sending cassette to the second station</li>
+            <li> I am delivering the cassette to second station</li>
          </random>
       </condition>
+
+      <condition name = "state" value = "IntentStationA">
+         <random>
+            <li> I am sending cassette to the first station</li>
+            <li> I am delivering the cassette to first station</li>
+         </random>
+      </condition>
+
+
+
       <condition name = "state" value = "Waiting">
          I am waiting for your command 
       </condition>
