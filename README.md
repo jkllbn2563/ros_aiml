@@ -55,7 +55,7 @@ roslaunch soundplay_node.launch
 <li> Sure, let's do this,and the current state is IntentFind </li>
 <li> No preblem, I am going to do it,and the current state is IntentFind </li>
 ```
-### keyword:REPOSITORY publish:IntentDelivery
+### keyword:REPOSITORYi, _ READY TO * publish:IntentDelivery
 ```
 <li> OK, I will deliver them to the repository,and the current state is IntentDelivery </li>
 <li> OK, Sure, let's do this,and the current state is IntentDelivery </li>
@@ -72,8 +72,7 @@ roslaunch soundplay_node.launch
 ### keyword: follow publish:IntentFollow
 ```
 <li> OK, I will follow you right now,and the current state is IntentFollow </li>
-<li> No preblem, I will follow your step,and the current state is IntentFollow </li>
-!! just say "follow me" :Where are we going?
+<li> No preblem, I will follow your step,and the current state is IntentFollow <
 ```
 
 ### keyword: _ WHAT HAPPENED publish:IntentWhat
@@ -95,4 +94,10 @@ What are you doing?
 What time is it?
 where are you from?
 
+```
+
+### The service of voice command
+
+```
+rosservice call /gloden_voice "{}" 
 
