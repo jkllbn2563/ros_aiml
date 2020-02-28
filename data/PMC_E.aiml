@@ -393,7 +393,7 @@
          I am waiting for your command 
       </condition>
       <condition name = "state" value = "IntentHome">
-         I am on my way home
+         I am charging the battery now
       </condition>
 
       <condition name = "state" value = "IntentFollow">
