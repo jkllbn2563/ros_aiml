@@ -80,11 +80,11 @@ roslaunch soundplay_node.launch
 start the image caption
 ```
 
-```
+
 ### keyword: first_station publish:IntentStationA
 
 ```
-OK, I will deliver them to the station A
+OK, I will deliver them to the first_station
 OK, Sure, let's do this
 No preblem, I am going to deliver them
 ```
