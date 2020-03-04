@@ -81,7 +81,7 @@ start the image caption
 ```
 
 ```
-### keyword: station A publish:IntentStationA
+### keyword: first_station publish:IntentStationA
 
 ```
 OK, I will deliver them to the station A
