@@ -19,7 +19,7 @@
 
    
    <category>
-      <pattern>_ SECOND STATION</pattern>
+      <pattern>_ SECOND</pattern>
       <template>
 
          <think><set name = "item">cassette</set></think>
@@ -29,7 +29,7 @@
             <random>
             <li> Ok, I will send it to the second station,and the current state is IntentFind </li>
             <li> Sure, let's do this,and the current state is IntentFind </li>
-            <li> No preblem, I am going to do it,and the current state is IntentFind </li>
+            <li> No problem, I am going to do it,and the current state is IntentFind </li>
             </random>
       </condition>
          
@@ -37,7 +37,7 @@
    </category>
 
    <category>
-      <pattern>SECOND STATION *</pattern>
+      <pattern>SECOND *</pattern>
       <template>
 
          <think><set name = "item">cassette</set></think>
@@ -47,7 +47,7 @@
             <random>
             <li> Ok, I will send it to the second station,and the current state is IntentFind </li>
             <li> Sure, let's do this,and the current state is IntentFind </li>
-            <li> No preblem, I am going to do it,and the current state is IntentFind </li>
+            <li> No problem, I am going to do it,and the current state is IntentFind </li>
             </random>
       </condition>
          
@@ -55,7 +55,7 @@
    </category>
    
    <category>
-      <pattern>_ SECOND STATION *</pattern>
+      <pattern>_ SECOND *</pattern>
       <template>
 
          <think><set name = "item">cassette</set></think>
@@ -65,7 +65,65 @@
             <random>
             <li> Ok, I will send it to the second station ,and the current state is IntentFind </li>
             <li> Sure, let's do this,and the current state is IntentFind </li>
-            <li> No preblem, I am going to do it,and the current state is IntentFind </li>
+            <li> No problem, I am going to do it,and the current state is IntentFind </li>
+            </random>
+      </condition>
+         
+      </template>
+   </category>
+
+
+
+
+
+   <category>
+      <pattern>_ 2ND</pattern>
+      <template>
+
+         <think><set name = "item">cassette</set></think>
+         <think><set name = "state">IntentFind</set></think>
+      <condition name = "state" value = "IntentFind">
+            
+            <random>
+            <li> Ok, I will send it to the second station,and the current state is IntentFind </li>
+            <li> Sure, let's do this,and the current state is IntentFind </li>
+            <li> No problem, I am going to do it,and the current state is IntentFind </li>
+            </random>
+      </condition>
+         
+      </template>
+   </category>
+
+   <category>
+      <pattern>2ND *</pattern>
+      <template>
+
+         <think><set name = "item">cassette</set></think>
+         <think><set name = "state">IntentFind</set></think>
+      <condition name = "state" value = "IntentFind">
+            
+            <random>
+            <li> Ok, I will send it to the second station,and the current state is IntentFind </li>
+            <li> Sure, let's do this,and the current state is IntentFind </li>
+            <li> No problem, I am going to do it,and the current state is IntentFind </li>
+            </random>
+      </condition>
+         
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_ 2ND *</pattern>
+      <template>
+
+         <think><set name = "item">cassette</set></think>
+         <think><set name = "state">IntentFind</set></think>
+      <condition name = "state" value = "IntentFind">
+            
+            <random>
+            <li> Ok, I will send it to the second station ,and the current state is IntentFind </li>
+            <li> Sure, let's do this,and the current state is IntentFind </li>
+            <li> No problem, I am going to do it,and the current state is IntentFind </li>
             </random>
       </condition>
          
@@ -144,7 +202,7 @@
          <random>
             <li> OK, I will send them to the repository,and the current state is IntentDelivery </li>
             <li> Sure, let's do this,and the current state is IntentDelivery </li>
-            <li> No preblem, I am going to deliver them,and the current state is IntentDelivery </li>
+            <li> No problem, I am going to deliver them,and the current state is IntentDelivery </li>
          </random>
       </condition>
       </template>
@@ -161,7 +219,7 @@
          <random>
             <li> OK, I will deliver them to the repository,and the current state is IntentDelivery </li>
             <li> OK, Sure, let's do this,and the current state is IntentDelivery </li>
-            <li> No preblem, I am going to deliver them,and the current state is IntentDelivery </li>
+            <li> No problem, I am going to deliver them,and the current state is IntentDelivery </li>
          </random>
       </condition>
         
@@ -200,14 +258,14 @@
 
 
 <category>
-      <pattern>FIRST STATION</pattern>
+      <pattern>FIRST</pattern>
       <template>
          <think><set name = "state">IntentStationA</set> </think>
       <condition name = "state" value = "IntentStationA">
          <random>
             <li> OK, I will deliver them to the first station,and the current state is IntentStationA </li>
             <li> OK, Sure, let's do this,and the current state is IntentStationA </li>
-            <li> No preblem, I am going to deliver them,and the current state is IntentStationA </li>
+            <li> No problem, I am going to deliver them,and the current state is IntentStationA </li>
          </random>
       </condition>
         
@@ -217,30 +275,30 @@
    </category>  
    
    <category>
-      <pattern>_ FIRST STATION</pattern>
+      <pattern>_ FIRST</pattern>
       <template>
-         <srai>FIRST STATION</srai>
+         <srai>FIRST</srai>
       </template>
    </category>
    
    <category>
-      <pattern>_ FIRST STATION</pattern>
+      <pattern>_ FIRST</pattern>
       <template>
-         <srai>FIRST STATION</srai>
+         <srai>FIRST</srai>
       </template>
    </category>
    
    <category>
-      <pattern>FIRST STATION *</pattern>
+      <pattern>FIRST *</pattern>
       <template>
-         <srai>FIRST STATION</srai>
+         <srai>FIRST</srai>
       </template>
    </category>
    
    <category>
-      <pattern>_ FIRST STATION *</pattern>
+      <pattern>_ FIRST *</pattern>
       <template>
-         <srai>FIRST STATION</srai>
+         <srai>FIRST</srai>
       </template>
    </category>
 
@@ -260,7 +318,7 @@
          <random>
             <li> OK, I will go home right now,and the current state is IntentHome </li>
             <li> OK, Sure, let's go home,and the current state is IntentHome </li>
-            <li> No preblem, I am on my way home,and the current state is IntentHome </li>
+            <li> No problem, I am on my way home,and the current state is IntentHome </li>
          </random>
       </condition>
         
@@ -306,7 +364,7 @@
       <condition name = "state" value = "IntentFollow">
          <random>
             <li> OK, I will follow you right now,and the current state is IntentFollow </li>
-            <li> No preblem, I will follow your step,and the current state is IntentFollow </li>
+            <li> No problem, I will follow your step,and the current state is IntentFollow </li>
          </random>
       </condition>
         
