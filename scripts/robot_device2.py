@@ -19,13 +19,12 @@ r=speech_recognition.Recognizer()
 pub=rospy.Publisher('/chatter',String,queue_size=10)
 rospy.init_node('google_api',anonymous=True)
 rate=rospy.Rate(1)
+#print(speech_recognition.Microphone.list_microphone_names())
 import sounddevice as sd
 print (sd.query_devices())
-#Avantree Audikast Plus: USB Audio (hw:2,0), ALSA (1 in, 2 out)
-#exit(-1)
 #device_index=0
 def listen():
-	with speech_recognition.Microphone(device_index=1) as source:
+	with speech_recognition.Microphone() as source:
 		r.adjust_for_ambient_noise(source, duration=0.5)
 		audio=r.record(source,duration=4)
 		#audio=r.listen(source)
@@ -48,7 +47,7 @@ while not rospy.is_shutdown():
 	
 	#print("press enter to start")
 	#keyboard.wait('enter')
-	#raw_input()
+	raw_input()
 	try:
 		
 
