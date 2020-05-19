@@ -80,7 +80,7 @@
          <random>
             <li> OK, I will deliver it to the shipping area,and the current state is IntentDelivery </li>
             <li> OK, I will take it,and the current state is IntentDelivery </li>
-            <li> No preblem, I will do it,and the current state is IntentDelivery </li>
+            <li> No problem, I will do it,and the current state is IntentDelivery </li>
          </random>
       </condition>
       </template>
@@ -155,7 +155,7 @@
          <random>
             <li> OK, I will deliver it to the shipping area,and the current state is IntentDelivery </li>
             <li> OK, I will take it,and the current state is IntentDelivery </li>
-            <li> No preblem, I will do it,and the current state is IntentDelivery </li>
+            <li> No problem, I will do it,and the current state is IntentDelivery </li>
          </random>
       </condition>
         
