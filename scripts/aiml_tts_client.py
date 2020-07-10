@@ -106,10 +106,10 @@ def listener():
 
 
 if __name__ == '__main__':
-	s=rospy.Service("gloden_voice",Trigger,executeVoice)
-	rospy.wait_for_service('/gloden_voice')
+	s=rospy.Service("golden_voice",Trigger,executeVoice)
+	rospy.wait_for_service('/golden_voice')
 
 	# create triggerCaption server for main state machine trigger
-	triggerVoice_server=rospy.ServiceProxy('/gloden_voice',Trigger)
+	triggerVoice_server=rospy.ServiceProxy('/golden_voice',Trigger)
 	listener()
 		   

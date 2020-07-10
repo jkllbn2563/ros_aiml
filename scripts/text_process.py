@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import re
 
 
@@ -20,6 +21,18 @@ def trigger_response(data):
 		pub.publish(state)
 		rate.sleep()
 
+def Wiki_response(data):
+	
+	response = data.data
+	rospy.loginfo("Start to process ::%s",response)
+	result=re.search(r"維基百科(?P<state>.+)",response)
+	if result:
+		state=result.group('state')
+		print(state)
+		pub.publish(state)
+		rate.sleep()
+
+
 
 
 
@@ -27,6 +40,7 @@ def listener():
 
 	rospy.loginfo("Starting trigger state machine")
 	rospy.Subscriber("response",String, trigger_response,queue_size=10)
+	rospy.Subscriber("chatter",String, Wiki_response,queue_size=10)
 	rospy.spin()
 
 if __name__ == '__main__':

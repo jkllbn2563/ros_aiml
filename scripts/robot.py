@@ -9,7 +9,7 @@ from std_msgs.msg import String
 #from pynupt.keyboard import Key,controller
 import keyboard
 import warnings
-
+import re
 warnings.filterwarnings("ignore")
 
 #keyboard.press_and_release('shift+s, space')
@@ -20,21 +20,20 @@ pub=rospy.Publisher('/chatter',String,queue_size=10)
 rospy.init_node('google_api',anonymous=True)
 rate=rospy.Rate(1)
 import sounddevice as sd
-print (sd.query_devices())
+#print (sd.query_devices())
 #Avantree Audikast Plus: USB Audio (hw:2,0), ALSA (1 in, 2 out)
 #exit(-1)
 #device_index=0
 def listen():
-	with speech_recognition.Microphone(device_index=1) as source:
+	with speech_recognition.Microphone() as source:
 		r.adjust_for_ambient_noise(source, duration=0.5)
 		audio=r.record(source,duration=4)
 		#audio=r.listen(source)
-		#print("You said " + r.recognize_google(audio,language='zh-TW'))
-		print("You said " + r.recognize_google(audio,language='en-US'))
-
-		#r.recognize_google(audio,language='en-US')
-		#pub.publish(r.recognize_google(audio,language='zh-TW').encode('utf-8'))
-		pub.publish(r.recognize_google(audio,language='en-US'))
+		print("You said " + r.recognize_google(audio,language='zh-TW'))
+		#print("You said " + r.recognize_google(audio,language='en-US'))
+		
+		pub.publish(r.recognize_google(audio,language='zh-TW').encode('utf-8'))
+		#pub.publish(r.recognize_google(audio,language='en-US'))
 
 		rate.sleep()
 		

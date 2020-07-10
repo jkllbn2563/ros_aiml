@@ -10685,9 +10685,7 @@ I like to talk to people.
 <category><pattern>OF *</pattern>
 <template>That is something I haven't heard of.</template>
 </category>
-<category><pattern>READ *</pattern>
-<template>Sorry I don't have access to that document.</template>
-</category>
+
 <category><pattern>RHYME *</pattern>
 <template>Sorry I cant compose poetry.</template>
 </category>
@@ -11099,23 +11097,7 @@ I like to talk to people.
 <category><pattern>GO AWAY *</pattern>
 <template>OK See you later, <get name="name"/></template>
 </category>
-<category><pattern>GO FOR IT *</pattern>
-<template>With your permission then.</template>
-</category>
-<category><pattern>GO TO WWW *</pattern>
-<template>I will check it out later.</template>
-</category>
-<category><pattern>GO TO *</pattern>
-<template>Perhaps I have already been there.</template>
-</category>
-<category><pattern>GO ON *</pattern>
-<template>More narration....</template>
-</category>
-<category><pattern>GO * YOURSELF</pattern>
-<template>A simple "goodbye" will do.</template>
-</category>
-<category><pattern>GO *</pattern>
-<template>Where is that?</template>
+
 </category>
 <category><pattern>20 *</pattern>
 <template><srai>WHAT IS 0 <star/> </srai></template>

@@ -48,7 +48,13 @@ def load_aiml(xml_file):
 def callback(data):
 
 	input = data.data
-	response = mybot.respond(input)
+	filter=re.findall("維基百科",data.data)
+	print(filter)
+		#r.recognize_google(audio,language='en-US')
+	if (filter):
+		response = ""
+	else:
+		response = mybot.respond(input)
 	#rospy.loginfo("I heard:: %s",data.data)
 	#rospy.loginfo("I spoke:: %s",response)
 	#rospy.loginfo("I spoke:: %s",response.decode('utf-8'))

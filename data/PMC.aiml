@@ -6,37 +6,54 @@
 <category>
 <pattern>PLEASE SEND THE PACKAGE TO ME</pattern>
 <template>OK,I WILL DELIVER IT</template>
-
-
 </category>
 
 <category>
+      <pattern>維基百科</pattern>
+      <template>
+         <think><set name = "state">IntentStationA</set> </think>
+      <condition name = "state" value = "IntentStationA">
+         <random>
+            <li> OK, I will deliver them to the first station,and the current state is IntentStationA </li>
+            <li> OK, Sure, let's do this,and the current state is IntentStationA </li>
+            <li> No problem, I am going to deliver them,and the current state is IntentStationA </li>
+         </random>
+      </condition>
+        
 
 
-<pattern>* PICK UP * BOX * </pattern>
-<think>      <set name="item">BOX</set>     </think>
+      </template>
+   </category>  
+   
+   <category>
+      <pattern>_維基百科</pattern>
+      <template>
+         <srai>維基百科</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_維基百科</pattern>
+      <template>
+         <srai>維基百科</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>維基百科*</pattern>
+      <template>
+         <srai>維基百科</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_維基百科*</pattern>
+      <template>
+         <srai>維基百科</srai>
+      </template>
+   </category>
 
-<template>OK! We will do it and send it to the <get name="item"/>.
-	
 
-
-
-
-</template>
-
-
-</category>
-
-
-
-<category>
-<pattern>TAIWAN</pattern>
-<template>url:http://wap.baidu.com/s?word=<star index="1" />CAPTICAL OF TAIWAN</template>
-</category>
-<category>
-<pattern>_百度下_</pattern>
-<template>url:http://wap.baidu.com/s?word=<star index="2" /></template>
-</category>
 
 
 <category>
