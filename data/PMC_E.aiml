@@ -15,7 +15,50 @@
 </category>
 
 
+<category>
+      <pattern>HOME</pattern>
+      <template>
+         <think><set name = "state">IntentHome</set> </think>
+      <condition name = "state" value = "IntentHome">
+         <random>
+            <li> OK, I will go home right now,and the current state is IntentHome </li>
+            <li> OK, Sure, let's go home,and the current state is IntentHome </li>
+            <li> No problem, I am on my way home,and the current state is IntentHome </li>
+         </random>
+      </condition>
+        
 
+
+      </template>
+   </category>  
+   
+   <category>
+      <pattern>_ HOME</pattern>
+      <template>
+         <srai>HOME</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_ HOME</pattern>
+      <template>
+         <srai>HOME</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>HOME *</pattern>
+      <template>
+         <srai>HOME</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_ HOME *</pattern>
+      <template>
+         <srai>HOME</srai>
+      </template>
+   </category>
 
    
    <category>
@@ -114,7 +157,7 @@
    <category>
       <pattern>_ MORE</pattern>
       <template>
-         <srai>REPOSITORY</srai>
+         <srai>More</srai>
       </template>
    </category>
    
@@ -300,9 +343,13 @@
 
       <condition name = "state" value = "IntentGo">
          <random>
-            <li> I am going to patrol</li>
-            <li> I am conducting the mission for patrol </li>
+            <li> I am going to patrol at station C</li>
+            <li> I am conducting the mission for patrol at station C </li>
          </random>
+      </condition>
+
+      <condition name = "state" value = "IntentHome">
+         I am on my way home
       </condition>
 
       
