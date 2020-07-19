@@ -12,6 +12,10 @@ import warnings
 from std_msgs.msg import String
 import time
 warnings.filterwarnings("ignore")
+import requests
+import bs4
+
+from bs4 import BeautifulSoup
 
 rospy.init_node('aiml_server')
 mybot = aiml.Kernel()
@@ -44,17 +48,71 @@ def load_aiml(xml_file):
 		mybot.bootstrap(learnFiles = xml_file, commands = "load aiml b")
 		mybot.saveBrain("standard.brn")
 
+def Wiki_response(data):
+	
+	response = data.data
+	rospy.loginfo("Start to process ::%s",response)
+	result=re.search(r"維基百科(?P<state>.+)",response)
+	result_number=re.search(r"威力彩(?P<state>.+)",response)
+	if result:
+		state=result.group('state')
+		print(state)
+		res=requests.get("https://zh.wikipedia.org/wiki/{}".format(state))
+		soup=BeautifulSoup(res.text,"lxml")
+		para=soup.select_one(".mw-parser-output p").text
+		rate.sleep()
+		response_publisher.publish(para)		#pub.publish(state)
+	if result_number:
+		#state=result_number.group('state')
+		number1=""
+		url="http://www.taiwanlottery.com.tw"
+		html=requests.get(url)
+		html.raise_for_status()
+		objSoup=bs4.BeautifulSoup(html.text,'lxml')
+		dataTag=objSoup.select(".contents_box02")
+		print("串列長度",len(dataTag))
+		while(len(dataTag)==0):
+		
+			dataTag=objSoup.select(".contents_box02")
+		balls=dataTag[0].find_all("div",{"class":"ball_tx ball_green"})
+		
+
+		#print("第一區",end="")
+		for i in range(6,len(balls)):
+			#print(balls[i].text, end="")
+			number1=number1+","+balls[i].text
+		redball=dataTag[0].find_all("div",{"class":"ball_red"})
+		number2=redball[0].text
+		print("第二區:{}".format(redball[0].text))
+		print(number1)
+		total="First section is "+number1+"and the special number is "+number2
+		response_publisher.publish(total)
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def callback(data):
 
 	input = data.data
-	filter=re.findall("維基百科",data.data)
-	print(filter)
+	#filter=re.findall("維基百科",data.data)
+	#print(filter)
 		#r.recognize_google(audio,language='en-US')
-	if (filter):
-		response = ""
-	else:
-		response = mybot.respond(input)
+	#if (filter):
+		#response = ""
+	#else:
+	response = mybot.respond(input)
 	#rospy.loginfo("I heard:: %s",data.data)
 	#rospy.loginfo("I spoke:: %s",response)
 	#rospy.loginfo("I spoke:: %s",response.decode('utf-8'))
@@ -98,6 +156,7 @@ def listener():
 
 	rospy.loginfo("Starting ROS AIML Server")
 	rospy.Subscriber("chatter", String, callback)
+	rospy.Subscriber("chatter", String, Wiki_response)
     
 	# spin() simply keeps python from exiting until this node is stopped
 	rospy.spin()
