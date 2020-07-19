@@ -14,9 +14,8 @@
          <think><set name = "state">IntentStationA</set> </think>
       <condition name = "state" value = "IntentStationA">
          <random>
-            <li> OK, I will deliver them to the first station,and the current state is IntentStationA </li>
-            <li> OK, Sure, let's do this,and the current state is IntentStationA </li>
-            <li> No problem, I am going to deliver them,and the current state is IntentStationA </li>
+            <li> </li>
+            <li> </li>
          </random>
       </condition>
         
@@ -54,7 +53,49 @@
    </category>
 
 
+<category>
+      <pattern>威力彩</pattern>
+      <template>
+         <think><set name = "state">IntentStationA</set> </think>
+      <condition name = "state" value = "IntentStationA">
+         <random>
+            <li> </li>
+            <li> </li>
+         </random>
+      </condition>
+        
 
+
+      </template>
+   </category>  
+   
+   <category>
+      <pattern>_威力彩</pattern>
+      <template>
+         <srai>威力彩</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_威力彩</pattern>
+      <template>
+         <srai>威力彩</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>威力彩*</pattern>
+      <template>
+         <srai>威力彩</srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern>_威力彩*</pattern>
+      <template>
+         <srai>威力彩</srai>
+      </template>
+   </category>
 
 <category>
 <pattern>告白氣球</pattern>
